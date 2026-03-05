@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>龙虾科技 Lobster AI - 智能驱动未来</title>
+    <meta name="description" content="龙虾科技提供专业的AI解决方案，包括AI内容创作、自动化软件开发、智能客服和数据分析服务。">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'lobster-dark': '#0A1628',
+                        'lobster-red': '#FF4D4D',
+                        'lobster-coral': '#FF6B4A',
+                        'lobster-blue': '#00D4FF',
+                        'lobster-pearl': '#F8F9FA',
+                    },
+                    fontFamily: {
+                        sans: ['Noto Sans SC', 'Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-text {
+            background: linear-gradient(135deg, #FF4D4D 0%, #FF6B4A 50%, #00D4FF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-gradient {
+            background: radial-gradient(ellipse at top, #1a3a5c 0%, #0A1628 50%, #0A1628 100%);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glow-red {
+            box-shadow: 0 0 30px rgba(255, 77, 77, 0.3);
+        }
+        .glow-blue {
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+        .pulse-glow {
+            animation: pulse-glow 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-lobster-dark text-white font-sans antialiased">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-lobster-red to-lobster-coral flex items-center justify-center text-white font-bold text-xl">
+                        🦞
+                    </div>
+                    <div>
+                        <span class="text-xl font-bold text-white">龙虾科技</span>
+                        <span class="text-xs text-lobster-blue block">Lobster AI</span>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#home" class="text-gray-300 hover:text-white transition-colors text-sm font-medium">首页</a>
+                    <a href="#services" class="text-gray-300 hover:text-white transition-colors text-sm font-medium">服务</a>
+                    <a href="#about" class="text-gray-300 hover:text-white transition-colors text-sm font-medium">关于</a>
+                    <a href="#cases" class="text-gray-300 hover:text-white transition-colors text-sm font-medium">案例</a>
+                    <a href="/admin/login.html" class="px-4 py-2 rounded-lg bg-gradient-to-r from-lobster-red to-lobster-coral text-white text-sm font-medium hover:opacity-90 transition-opacity">
+                        管理后台
+                    </a>
+                </div>
+                <button class="md:hidden text-white" id="mobile-menu-btn">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-4 pt-2 pb-6 space-y-2 bg-lobster-dark/95 backdrop-blur-lg">
+                <a href="#home" class="block px-3 py-2 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg">首页</a>
+                <a href="#services" class="block px-3 py-2 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg">服务</a>
+                <a href="#about" class="block px-3 py-2 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg">关于</a>
+                <a href="#cases" class="block px-3 py-2 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg">案例</a>
+                <a href="/admin/login.html" class="block px-3 py-2 text-lobster-red font-medium">管理后台</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center hero-gradient overflow-hidden">
+        <!-- Background Effects -->
+        <div class="absolute inset-0">
+            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-lobster-red/20 rounded-full blur-3xl pulse-glow"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-lobster-blue/20 rounded-full blur-3xl pulse-glow" style="animation-delay: 1.5s;"></div>
+        </div>
+        
+        <!-- Grid Pattern -->
+        <div class="absolute inset-0 bg-[linear-gradient(rgba(0,212,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,212,255,0.03)_1px,transparent_1px)] bg-[size:60px_60px]"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8 float-animation">
+                <span class="w-2 h-2 rounded-full bg-lobster-red animate-pulse"></span>
+                <span class="text-sm text-gray-300">🦞 龙虾科技正式上线</span>
+            </div>
+            
+            <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+                <span class="text-white">智能驱动</span>
+                <span class="gradient-text">未来</span>
+            </h1>
+            
+            <p class="text-xl sm:text-2xl text-gray-400 mb-4 max-w-3xl mx-auto">
+                专业AI解决方案提供商
+            </p>
+            <p class="text-lg text-gray-500 mb-12 max-w-2xl mx-auto">
+                AI内容创作 · 自动化软件开发 · 智能客服 · 数据分析
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#contact" class="group px-8 py-4 rounded-xl bg-gradient-to-r from-lobster-red to-lobster-coral text-white font-semibold text-lg hover:shadow-lg hover:shadow-lobster-red/30 transition-all glow-red">
+                    立即咨询
+                    <span class="inline-block ml-2 group-hover:translate-x-1 transition-transform">→</span>
+                </a>
+                <a href="#services" class="px-8 py-4 rounded-xl bg-white/5 border border-white/20 text-white font-semibold text-lg hover:bg-white/10 transition-all">
+                    了解服务
+                </a>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2">
+            <div class="w-6 h-10 rounded-full border-2 border-white/20 flex items-start justify-center p-2">
+                <div class="w-1 h-2 bg-white/40 rounded-full animate-bounce"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-lobster-dark relative">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(255,77,77,0.1),transparent_50%)]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="text-center mb-16">
+                <span class="inline-block px-4 py-1 rounded-full bg-lobster-red/10 text-lobster-red text-sm font-medium mb-4">核心服务</span>
+                <h2 class="text-4xl sm:text-5xl font-bold text-white mb-4">专业AI解决方案</h2>
+                <p class="text-xl text-gray-400 max-w-2xl mx-auto">为企业提供全方位的AI技术服务，助力数字化转型</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Service 1 -->
+                <div class="glass-card rounded-2xl p-6 hover:bg-white/10 transition-all group cursor-pointer">
+                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-lobster-red to-lobster-coral flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-2">AI内容创作</h3>
+                    <p class="text-gray-400 text-sm mb-4">智能生成图文、视频、文案等多媒体内容，提升创作效率</p>
+                    <div class="flex items-center text-lobster-red text-sm font-medium">
+                        了解详情
+                        <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="glass-card rounded-2xl p-6 hover:bg-white/10 transition-all group cursor-pointer">
+                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-lobster-blue to-blue-500 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-2">自动化软件开发</h3>
+                    <p class="text-gray-400 text-sm mb-4">定制化软件系统开发，业务流程自动化，提升运营效率</p>
+                    <div class="flex items-center text-lobster-blue text-sm font-medium">
+                        了解详情
+                        <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="glass-card rounded-2xl p-6 hover:bg-white/10 transition-all group cursor-pointer">
+                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-2">智能客服</h3>
+                    <p class="text-gray-400 text-sm mb-4">7×24小时智能客服系统，自然语言处理，提升客户满意度</p>
+                    <div class="flex items-center text-purple-400 text-sm font-medium">
+                        了解详情
+                        <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="glass-card rounded-2xl p-6 hover:bg-white/10 transition-all group cursor-pointer">
+                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-2">数据分析</h3>
+                    <p class="text-gray-400 text-sm mb-4">深度数据挖掘与可视化分析，助力商业决策，发现增长机会</p>
+                    <div class="flex items-center text-emerald-400 text-sm font-medium">
+                        了解详情
+                        <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advantages Section -->
+    <section id="about" class="py-24 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-lobster-dark via-[#0d1f35] to-lobster-dark"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <span class="inline-block px-4 py-1 rounded-full bg-lobster-blue/10 text-lobster-blue text-sm font-medium mb-6">为什么选择我们</span>
+                    <h2 class="text-4xl sm:text-5xl font-bold text-white mb-6">专业团队<br/>卓越服务</h2>
+                    <p class="text-gray-400 text-lg mb-8">我们拥有一支经验丰富的AI技术团队，致力于为客户提供最优质的技术解决方案。</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-lobster-red/20 flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-lobster-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">高效交付</h4>
+                                <p class="text-gray-400 text-sm">敏捷开发流程，快速响应需求，确保项目按时交付</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-lobster-blue/20 flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-lobster-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">技术创新</h4>
+                                <p class="text-gray-400 text-sm">紧跟前沿技术，持续创新，为客户提供最优解决方案</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">专属服务</h4>
+                                <p class="text-gray-400 text-sm">一对一项目经理，全程跟进，确保服务质量</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <div class="absolute -inset-4 bg-gradient-to-r from-lobster-red/20 to-lobster-blue/20 rounded-3xl blur-2xl"></div>
+                    <div class="relative glass-card rounded-3xl p-8">
+                        <div class="grid grid-cols-2 gap-6">
+                            <div class="text-center p-6 bg-white/5 rounded-2xl">
+                                <div class="text-4xl font-bold text-lobster-red mb-2">100+</div>
+                                <div class="text-gray-400 text-sm">服务客户</div>
+                            </div>
+                            <div class="text-center p-6 bg-white/5 rounded-2xl">
+                                <div class="text-4xl font-bold text-lobster-blue mb-2">500+</div>
+                                <div class="text-gray-400 text-sm">完成项目</div>
+                            </div>
+                            <div class="text-center p-6 bg-white/5 rounded-2xl">
+                                <div class="text-4xl font-bold text-purple-400 mb-2">98%</div>
+                                <div class="text-gray-400 text-sm">客户满意度</div>
+                            </div>
+                            <div class="text-center p-6 bg-white/5 rounded-2xl">
+                                <div class="text-4xl font-bold text-emerald-400 mb-2">24/7</div>
+                                <div class="text-gray-400 text-sm">技术支持</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cases Section -->
+    <section id="cases" class="py-24 bg-gradient-to-b from-lobster-dark to-[#0d1f35] relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="inline-block px-4 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-sm font-medium mb-4">成功案例</span>
+                <h2 class="text-4xl sm:text-5xl font-bold text-white mb-4">客户信赖之选</h2>
+                <p class="text-xl text-gray-400 max-w-2xl mx-auto">我们为各行各业的客户提供了优质的AI解决方案</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Case 1 -->
+                <div class="glass-card rounded-2xl overflow-hidden group hover:scale-105 transition-all duration-300">
+                    <div class="h-48 bg-gradient-to-br from-lobster-red/30 to-lobster-coral/30 flex items-center justify-center">
+                        <svg class="w-16 h-16 text-lobster-red/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs text-lobster-red font-medium">电商行业</span>
+                        <h3 class="text-xl font-semibold text-white mt-2 mb-3">智能商品推荐系统</h3>
+                        <p class="text-gray-400 text-sm mb-4">为某电商平台开发AI推荐引擎，点击率提升40%，转化率提升25%</p>
+                        <div class="flex gap-2">
+                            <span class="px-2 py-1 rounded bg-white/5 text-xs text-gray-400">机器学习</span>
+                            <span class="px-2 py-1 rounded bg-white/5 text-xs text-gray-400">推荐算法</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 2 -->
+                <div class="glass-card rounded-2xl overflow-hidden group hover:scale-105 transition-all duration-300">
+                    <div class="h-48 bg-gradient-to-br from-lobster-blue/30 to-blue-500/30 flex items-center justify-center">
+                        <svg class="w-16 h-16 text-lobster-blue/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/>
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs text-lobster-blue font-medium">金融行业</span>
+                        <h3 class="text-xl font-semibold text-white mt-2 mb-3">智能客服机器人</h3>
+                        <p class="text-gray-400 text-sm mb-4">为银行部署AI客服系统，自动解答率达80%，客户满意度提升至95%</p>
+                        <div class="flex gap-2">
+                            <span class="px-2 py-1 rounded bg-white/5 text-xs text-gray-400">NLP</span>
+                            <span class="px-2 py-1 rounded bg-white/5 text-xs text-gray-400">对话系统</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 3 -->
+                <div class="glass-card rounded-2xl overflow-hidden group hover:scale-105 transition-all duration-300">
+                    <div class="h-48 bg-gradient-to-br from-purple-500/30 to-pink-500/30 flex items-center justify-center">
+                        <svg class="w-16 h-16 text-purple-400/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z"/>
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs text-purple-400 font-medium">内容行业</span>
+                        <h3 class="text-xl font-semibold text-white mt-2 mb-3">AIGC内容平台</h3>
+                        <p class="text-gray-400 text-sm mb-4">为媒体公司搭建AI内容生产平台，内容产出效率提升300%</p>
+                        <div class="flex gap-2">
+                            <span class="px-2 py-1 rounded bg-white/5 text-xs text-gray-400">AIGC</span>
+                            <span class="px-2 py-1 rounded bg-white/5 text-xs text-gray-400">内容生成</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contact" class="py-24 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-lobster-red/20 via-lobster-dark to-lobster-blue/20"></div>
+        <div class="absolute inset-0 bg-lobster-dark/80"></div>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative text-center">
+            <h2 class="text-4xl sm:text-5xl font-bold text-white mb-6">准备好开启AI之旅了吗？</h2>
+            <p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">联系我们，获取专属的AI解决方案，让您的业务更智能、更高效</p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+                <a href="mailto:contact@lobsterai.tech" class="group px-8 py-4 rounded-xl bg-gradient-to-r from-lobster-red to-lobster-coral text-white font-semibold text-lg hover:shadow-lg hover:shadow-lobster-red/30 transition-all">
+                    免费咨询
+                    <span class="inline-block ml-2 group-hover:translate-x-1 transition-transform">→</span>
+                </a>
+                <a href="tel:+8610000000" class="px-8 py-4 rounded-xl bg-white/5 border border-white/20 text-white font-semibold text-lg hover:bg-white/10 transition-all">
+                    电话联系
+                </a>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-8 text-gray-400">
+                <div class="flex items-center gap-2">
+                    <svg class="w-5 h-5 text-lobster-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                    <span>contact@lobsterai.tech</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <svg class="w-5 h-5 text-lobster-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                    </svg>
+                    <span>中国 · 上海</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#050d

@@ -1,0 +1,6 @@
+name = "lobster-ai-website"
+account_id = "02c11b4b04abe771c7df7df0cdd03c14"
+compatibility_date = "2024-01-01"
+
+[site]
+bucket = "./public"
